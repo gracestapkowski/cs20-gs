@@ -14,14 +14,12 @@ ul {
     padding: 0;
     overflow: hidden;
     background-color: #354a3d;
+    display: inline-block;
+    list-style-type: none;
 }
 
 li {
-    float: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    float: left;
 }
 
 li a {
