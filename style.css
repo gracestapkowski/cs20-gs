@@ -1,0 +1,38 @@
+body {
+    background-color:  #354a3d;
+}
+h1 {
+    text-align: center;
+    color: white;
+    font-family: "Courier New";
+    background-color: #354a3d;
+}
+ul {
+    list-style-type: none;
+    font-family: "Courier New";
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #354a3d;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+     background-color: #658572;
+}
+    
+li a.active {
+    background-color: #658572;
+    color: white;
+}
