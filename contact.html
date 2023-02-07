@@ -1,43 +1,55 @@
-
 <html>
 <head>
     <title>
         Stapkowski Plant Nursery
     </title>
     <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        form {
+            background-color: #5f5251;
+            color: white;
+            font-family: Arial;
+            text-align: center; 
+            font-size: 20;
+        }
+    </style>
 </head>
     <body>
         <h1> Stapkowski Plant Nursery </h1>
         <ul>
             <li><a href="home.html">Home</a></li>
-            <li><a href="shop.html">Shop</a></li>
-            <li><a class="active" href="https://gracestapkowski.github.io/cs20-gs/contact.html">Contact</a></li>
+            <li><a class="active" href="/Users/gracestapkowski/Desktop/Desktop - Grace’s MacBook Air/CS20/assign2/contact.html">Contact</a></li>
             <li><a href="about.html">About</a></li>
         </ul>
-        Contact Us!
+    </br> </br> </br>
+        <h2>Contact Us!</h2>
         <form>
-            <label for="txtNameId"> Name </label> 
-            <input type='text' name = 'txtName' id = 'txtNameId' placeholder="hey">
+            <label for="txtNameId"> <strong> Full Name </strong> </label> 
+            <input type='text' name = 'txtName' id = 'txtNameId'>
+            <br/>
+            <label for="txtNameId"> <strong> Email </strong> </label> 
+            <input type='text' name = 'txtName' id = 'txtNameId'>
+            <br/>
+            <strong> What is your concern? </strong>
+            <br />
+            <input type="checkbox" name='choice1'>Purchasing New Seeds
+            <input type="checkbox" name='choice2'>Purchasing Equipment
+            <input type="checkbox" name='choice3'>Purchasing Garden Decor
+            <input type="checkbox" name='choice4'>Other
+            <br/>
+            <strong> Please Type Your Message Below </strong>
+            <br/>
+            <textarea rows='5'>Replace this with your message!</textarea>
+            <br/>
+            <strong> Would you like to be subscribed to our mailing list? </strong>
             <br/>
             <input type="radio" name='choice' value='yes' checked='1'>yes
             <input type="radio" name='choice' value='no'>no
             <br/>
-            <input type="checkbox" name='choice1'>1
-            <input type="checkbox" name='choice2'>2
-            <br/>
-            <select size='1'>
-                <option value='1'>one</option> <!--useful for javaScript, can read as int and show string-->
-                <option selected='1'>2</option>
-                <option>3</option>
-            </select>
-            <br/>
-            <textarea rows='5'>this is the default text</textarea>
-            <br/>
-            <input type = 'submit' value = 'Buy Now'>
+            <input type = 'submit' value = 'Send'>
             <br/>
             <input type = 'reset'>
-            <br/>
-            <input type = 'button' value = 'press me' onclick="alert('hello there')">
         </form>
     </body>
 </html>
