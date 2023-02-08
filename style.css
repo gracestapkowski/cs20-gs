@@ -59,6 +59,7 @@ img {
 
 p {
     text-align: center;
+    float: right;
     background-color: #5f5251;
     color: white;
     font-size: 20;
