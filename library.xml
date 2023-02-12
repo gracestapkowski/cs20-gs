@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href = "style.css" ?>
+
+<library>
+
+    <song>
+        <artists>
+            <artist>LAUNDRY DAY</artist>
+        </artists>
+        <title>Jane</title>
+        <genres>
+            <genre>Pop</genre>
+        </genres>
+        <release>2018</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Selena Gomez</artist>
+        </artists>
+        <title>Middle of Nowhere</title>
+        <genres>
+            <genre>Pop</genre>
+        </genres>
+        <release>2011</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Mac Miller</artist>
+            <artist>Bilal</artist>
+        </artists>
+        <title>Congratulations (feat. Bilal)</title>
+        <genres>
+            <genre>Hip-Hop</genre>
+            <genre>Rap</genre>
+        </genres>
+        <release>2016</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Elton John</artist>
+        </artists>
+        <title>Tiny Dancer</title>
+        <genres>
+            <genre>Pop</genre>
+            <genre>Rock</genre>
+            <genre>Folk</genre>
+        </genres>
+        <release>1971</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Phoebe Bridgers</artist>
+        </artists>
+        <title>Graceland Too</title>
+        <genres>
+            <genre>Alternative</genre>
+            <genre>Indie</genre>
+        </genres>
+        <release>2020</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Harry Styles</artist>
+        </artists>
+        <title>Cherry</title>
+        <genres>
+            <genre>Pop</genre>
+        </genres>
+        <release>2019</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Grateful Dead</artist>
+        </artists>
+        <title>Scarlet Begonias</title>
+        <genres>
+            <genre>Rock</genre>
+            <genre>Folk</genre>
+        </genres>
+        <release>1974</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Taylor Swift</artist>
+        </artists>
+        <title>Getaway Car</title>
+        <genres>
+            <genre>Pop</genre>
+        </genres>
+        <release>2018</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Beyonce</artist>
+        </artists>
+        <title>Irreplaceable</title>
+        <genres>
+            <genre>Pop</genre>
+            <genre>Soul</genre>
+        </genres>
+        <release>2006</release>
+    </song>
+
+    <song>
+        <artists>
+            <artist>Megan Thee Stallion</artist>
+        </artists>
+        <title>Sugar Baby</title>
+        <genres>
+            <genre>Rap</genre>
+            <genre>Hip-Hop</genre>
+        </genres>
+        <release>2020</release>
+    </song>
+
+</library>
