@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <script>
+            order = [];
+            order["hotdogNum"] = prompt("How many hotdogs?");
+            order["friesNum"] = prompt("How many fries?");
+            order["sodaNum"] = prompt("How many sodas?");
+            document.write('Full Order: ' + 'Number of Hotdog Orders = ' + order["hotdogNum"] + ', Number of Fry Orders = ' 
+                            + order["friesNum"] + ', Number of Sodas = ' + order["sodaNum"]);
+            document.write("<br>");
+
+            subtotal = parseFloat((order["hotdogNum"] * 4) + (order["friesNum"] * 3.50) + (order["sodaNum"] * 1.75));
+            subtotal = String(subtotal);
+            if (subtotal.substring(subtotal.indexOf('.'), subtotal.length-1).length == 1) {
+                subtotal = subtotal + '0';
+            }
+            else if (subtotal.substring(subtotal.indexOf('.'), subtotal.length-1).length == 0) {
+                subtotal = subtotal + '00';
+            }
+            document.write('Subtotal: $' + subtotal);
+            document.write("<br>");
+            subtotal = parseFloat(subtotal);
+        
+            if (subtotal > 20) {
+                subtotal = subtotal * 90 / 100;
+                discount = subtotal * 10;
+                discount = parseInt(discount);
+                discount = discount / 100;
+                document.write('You are eligible for a special discount! 10% off applied.');
+                document.write("<br>");
+                document.write('Discount: $' + discount);
+                document.write("<br>");
+            }
+        
+            tax = subtotal * 6.25;
+            tax = parseInt(tax);
+            tax = tax / 100;
+            subtotal = subtotal + tax;
+        
+            tax = String(tax);
+            if (tax.substring(tax.indexOf('.'), tax.length-1).length == 1) {
+                tax = tax + '0';
+            }
+            document.write('Tax: $' + tax);
+            document.write("<br>");
+        
+            subtotal = String(subtotal);
+            if (subtotal.substr(subtotal.indexOf('.')).length == 1) {
+                subtotal = subtotal + '0';
+            }
+        
+            document.write('Final total: $' + subtotal);
+            document.write("<br>");
+        
+        </script>
+        <title>Joe's Hotdogs</title>
+    </head>
+
+</html>
