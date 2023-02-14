@@ -48,6 +48,9 @@
             if (subtotal.substr(subtotal.indexOf('.')).length == 1) {
                 subtotal = subtotal + '0';
             }
+            if (subtotal.substr(subtotal.indexOf('.')).length > 2) {
+                subtotal = subtotal.substring(0, subtotal.indexOf('.')+3);
+            }
         
             document.write('Final total: $' + subtotal);
             document.write("<br>");
