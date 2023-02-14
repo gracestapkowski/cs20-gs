@@ -14,8 +14,8 @@
             if (subtotal.substring(subtotal.indexOf('.'), subtotal.length-1).length == 1) {
                 subtotal = subtotal + '0';
             }
-            else if (subtotal.substring(subtotal.indexOf('.'), subtotal.length-1).length == 0) {
-                subtotal = subtotal + '00';
+            else if (!subtotal.includes('.')) {
+                subtotal = subtotal + '.00';
             }
             document.write('Subtotal: $' + subtotal);
             document.write("<br>");
