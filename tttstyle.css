@@ -26,7 +26,7 @@ div {
     background-color: #f2f5fc;
     border: 1px solid black;
     position: relative;
-    transform: translate(500px, 100px);
+    transform: translate(500%, 100%);
 }
 
 print {
@@ -37,7 +37,7 @@ print {
     width: 90%;
     position: fixed;
     background-color: #a2dbb1;
-    transform: translate(0px, 500px);
+    transform: translate(0%, 1650%);
 }
 
 button { 
@@ -45,6 +45,6 @@ button {
     text-align: center;
     color: black;
     font-size: 15px;
-    transform: translate(610px, 130px);
+    transform: translate(600%, 500%);
     background-color: #f2f5fc;
 }
