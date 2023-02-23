@@ -1,50 +1,113 @@
-p {
-    text-align: center;
-    font-family: verdana;
-    color: black;
-    font-size: 25px;
-    width: 90%;
-    position: fixed;
-    background-color: #f7d0db;
-}
+<html>
+    <head>
+        <title>tic tac toe!</title>
+        <link rel="stylesheet" href="tttstyle.css">
+    </head>
+    <body>
+        <script>
+            let turn = 1;
+            window.onload = function() {
+                let welcome = document.createElement('p');
+                document.body.appendChild(welcome);
+                welcome.class = 'welcome';
+                welcome.innerText = "Player X Turn";
 
-body {
-    font-family: verdana;
-    margin: 50px;
-    display: inline-grid;
-    grid-template-columns: repeat(3, auto);
-    justify-self: stretch;
-}
-  
-div {
-    font-family: verdana;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-    font-size: 60px;
-    text-align: center;
-    background-color: #f2f5fc;
-    border: 1px solid black;
-    position: relative;
-    transform: translate(500px, 100px);
-}
+                for (let i = 0; i < 9; i++) {
+                    let div = document.createElement('div');
+                    document.body.appendChild(div);
+                    div.class = 'box';
 
-print {
-    font-family: verdana;
-    text-align: center;
-    color: black;
-    font-size: 25px;
-    width: 90%;
-    position: fixed;
-    background-color: #a2dbb1;
-    transform: translate(0px, 500px);
-}
+                    div.title = 'f';
+                    div.id = i;
 
-button { 
-    font-family: verdana;
-    text-align: center;
-    color: black;
-    font-size: 15px;
-    transform: translate(610px, 130px);
-    background-color: #f2f5fc;
-}
+                    div.onclick = function() {
+                        if (turn == 1 && div.title == 'f') {
+                            div.textContent = "X";
+                            turn = 0;
+                            div.title = 't';
+                            welcome.innerText = "Player O Turn";
+                            checkWin();
+                        }
+                        else if (turn == 0 && div.title == 'f') {
+                            div.textContent = "O";
+                            turn = 1;
+                            div.title = 't';
+                            welcome.innerText = "Player X Turn";
+                            checkWin();
+                        }
+                    }
+                }
+
+                let print = document.createElement('print');
+                document.body.appendChild(print);
+
+                // resets if reset button is pressed
+                let reset = document.createElement('BUTTON');
+                document.body.appendChild(reset);
+                var text = document.createTextNode("New Game");
+                reset.appendChild(text);
+
+                reset.onclick = function() {
+                    for (let j = 0; j < 9; j++) {
+                        document.getElementById(j).textContent = '';
+                        document.getElementById(j).title = 'f';
+                    }//end for
+                    welcome.innerText = "";
+                    print.textContent = "";
+                    turn = 1;
+                    welcome.innerText = "Player X Turn";
+                }//end event handler for reset button 
+
+                function checkWin() {
+                results = [];
+                disabledCount = 0;
+                for (let i = 0; i < 9; i++) {
+                    if (document.getElementById(i).title == 't') {
+                        disabledCount++;
+                    }
+                }
+
+                for (let i = 0; i < 9; i++) {
+                    results.push(document.getElementById(i).textContent);
+                }
+
+                if ((results[0] == "X" && results[1] == "X" && results[2] == "X")
+                    || (results[0] == "X" && results[3] == "X" && results[6] == "X")
+                    || (results[6] == "X" && results[7] == "X" && results[8] == "X")
+                    || (results[2] == "X" && results[5] == "X" && results[8] == "X")
+                    || (results[0] == "X" && results[4] == "X" && results[8] == "X")
+                    || (results[2] == "X" && results[4] == "X" && results[6] == "X")
+                    || (results[1] == "X" && results[4] == "X" && results[7] == "X")
+                    || (results[3] == "X" && results[4] == "X" && results[5] == "X")) {
+                        print.textContent = "Player X Wins";
+                        welcome.innerText = "Game Over.";
+                        for (let k = 0; k < 9; k++) {
+                            document.getElementById(k).title = 't';
+                        }
+                }
+                else if ((results[0] == "O" && results[1] == "O" && results[2] == "O")
+                    || (results[0] == "O" && results[3] == "O" && results[6] == "O")
+                    || (results[6] == "O" && results[7] == "O" && results[8] == "O")
+                    || (results[2] == "O" && results[5] == "O" && results[8] == "O")
+                    || (results[0] == "O" && results[4] == "O" && results[8] == "O")
+                    || (results[2] == "O" && results[4] == "O" && results[6] == "O")
+                    || (results[1] == "O" && results[4] == "O" && results[7] == "O")
+                    || (results[3] == "O" && results[4] == "O" && results[5] == "O")) {
+                        print.textContent = "Player O Wins";
+                        welcome.innerText = "Game Over.";
+                        for (let h = 0; h < 9; h++) {
+                            document.getElementById(h).title = 't';
+                        }
+                }
+                else if (disabledCount == 9) {
+                    print.textContent = "Draw";
+                    welcome.innerText = "Game Over.";
+                    for (let h = 0; h < 9; h++) {
+                        document.getElementById(h).title = 't';
+                    }
+                }
+            }
+        }
+        </script>
+    </body>
+</html>
