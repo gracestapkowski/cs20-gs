@@ -1,0 +1,50 @@
+p {
+    text-align: center;
+    font-family: verdana;
+    color: black;
+    font-size: 25px;
+    width: 90%;
+    position: fixed;
+    background-color: #f7d0db;
+}
+
+body {
+    font-family: verdana;
+    margin: 50px;
+    display: inline-grid;
+    grid-template-columns: repeat(3, auto);
+    justify-self: stretch;
+}
+  
+div {
+    font-family: verdana;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+    font-size: 60px;
+    text-align: center;
+    background-color: #f2f5fc;
+    border: 1px solid black;
+    position: relative;
+    transform: translate(500px, 100px);
+}
+
+print {
+    font-family: verdana;
+    text-align: center;
+    color: black;
+    font-size: 25px;
+    width: 90%;
+    position: fixed;
+    background-color: #a2dbb1;
+    transform: translate(0px, 500px);
+}
+
+button { 
+    font-family: verdana;
+    text-align: center;
+    color: black;
+    font-size: 15px;
+    transform: translate(610px, 130px);
+    background-color: #f2f5fc;
+}
