@@ -217,9 +217,11 @@ function td(content, className="")
             d = new Date(d.getTime() + 15*60000);
         }
 
-        isValid = valName();
-        isValid = valPhone();
-        isValid = valInput();
+        validName = valName();
+        validPhone = valPhone();
+        validInput = valInput();
+
+        isValid = validName && validPhone && validInput;
 
 
         if (isValid) {
