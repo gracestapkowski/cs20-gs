@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Jade Delight</title>
+<!-- I ADDED -->
+<link rel="stylesheet" href="jdstyle.css">
+<!-- I ADDED -->
+</head>
+
+<body>
+<script>
+
+function MenuItem(name, cost)
+{
+	this.name = name;
+	this.cost=cost;
+}
+
+menuItems = new Array(
+	new MenuItem("Chicken Chop Suey", 5.5),
+	new MenuItem("Sweet and Sour Pork", 7.25),
+	new MenuItem("Shrimp Lo Mein", 6.80),
+	new MenuItem("Moo Shi Chicken", 9.50),
+	new MenuItem("Fried Rice", 3.25)
+);
+
+function makeSelect(name, minRange, maxRange)
+{
+	var t= "";
+	t = "<select name='" + name + "' size='1'>";
+	for (j=minRange; j<=maxRange; j++)
+	   t += "<option>" + j + "</option>";
+	t+= "</select>"; 
+	return t;
+}
+
+function td(content, className="")
+{
+	return "<td class = '" + className + "'>" + content + "</td>";
+}
+</script>
+
+<h1>Jade Delight</h1>
+<form>
+
+<p class="userInfo"><label>First Name:</label> <input type="text"  name='fname' /></p>
+<p class="userInfo"><label>Last Name*:</label>  <input type="text"  name='lname' /></p>
+<p class="userInfo address"><label>Street*:</label> <input type="text" name='street' /></p>
+<p class="userInfo address"><label>City*:</label> <input type="text" name='city' /></p>
+<p class="userInfo"><label>Phone*:</label> <input type="text"  name='phone' /></p>
+<p> 
+	<input type="radio"  name="p_or_d" value = "pickup" checked="checked"/>Pickup  
+	<input type="radio"  name='p_or_d' value = 'delivery'/>
+	Delivery
+</p>
+<table border="0" cellpadding="3">
+  <tr>
+    <th>Select Item</th>
+    <th>Item Name</th>
+    <th>Cost Each</th>
+    <th>Total Cost</th>
+  </tr>
+<script>
+
+  var s = "";
+  for (i=0; i< menuItems.length; i++)
+  {
+	  s += "<tr>";
+	  s += td(makeSelect("quan" + i, 0, 10),"selectQuantity");
+	  s += td(menuItems[i].name, "itemName");
+	  s += td("$" +menuItems[i].cost.toFixed(2), "cost");
+	  s += td("$<input type='text' name='cost'/>", "totalCost");
+	  s+= "</tr>";
+  }
+  document.writeln(s);
+</script>
+</table>
+<p class="subtotal totalSection"><label>Subtotal</label>: 
+   $ <input type="text"  name='subtotal' id="subtotal" />
+</p>
+<p class="tax totalSection"><label>Mass tax 6.25%:</label>
+  $ <input type="text"  name='tax' id="tax" />
+</p>
+<p class="total totalSection"><label>Total:</label> $ <input type="text"  name='total' id="total" />
+</p>
+
+<input type = "button" value = "Submit Order" />
+
+</form>
+<!-- -----------I ADDED------------- -->
+<script>
+    var delivery = false;
+    var errorMsg = "";
+    var subtotal = 0;
+    var tax = 0;
+    var total = 0;
+
+    //updating costs
+
+    function updateCosts() {
+    console.log("updating costs");
+    totalToFind = document.getElementsByName("cost");
+    for (i = 0; i < menuItems.length; i++) {
+        quan = document.getElementsByName("quan" + i);
+        var num_items = parseInt(quan[0].value);
+        var item_cost = menuItems[i].cost;
+        if (num_items != 0) {
+            total_cost = num_items * item_cost;
+            totalToFind[i].value = total_cost.toFixed(2);
+            console.log(total_cost);
+            subtotal += total_cost;
+        }
+      }//end for updating number of items and subtotal
+
+    subtotalBox = document.getElementById("subtotal");
+    subtotalBox.value = parseFloat(subtotal).toFixed(2);
+
+    taxBox = document.getElementById("tax");
+    tax = subtotal * 0.0625;
+    taxBox.value = parseFloat(tax).toFixed(2);
+
+    total = subtotal * 1.0625;
+    totalBox = document.getElementById("total");
+    totalBox.value = parseFloat(total).toFixed(2);
+    }//end updateCosts
+
+    function makeSelectUpdate() {
+      for (j = 0; j < menuItems.length; j++) {
+        const quan = document.getElementsByName("quan" + j);
+        console.log(quan[0]);
+        quan[0].addEventListener("change", updateCosts);
+      }
+    }//end makeSelectUpdate
+
+    //validating form entries
+
+    function valPhone() {
+        console.log("validating phone");
+        validPhone = true;
+        var phone = document.getElementsByName('phone')[0];
+
+        if (phone.value == "" || (!(phone.value.length == 7 || phone.value.length == 10))) {
+            errorMsg += "Please enter a valid phone number\n";
+            validPhone = false;
+        }
+
+        return validPhone;
+    }//end valPhone
+
+    function valName() {
+        console.log("validating name");
+        validName = true; 
+        var fName = document.getElementsByName("fname")[0];
+        var lName = document.getElementsByName("lname")[0];
+
+        if (lName.value == "") {
+            errorMsg += "Please enter a last name\n";
+            validName = false;
+        }
+
+        return validName;
+    }//end valName
+
+    function valInput() {
+        console.log("validating input");
+        validInput = true;
+        emptyCount = 0;
+        for (k = 0; k < menuItems.length; k++) {
+            var input = document.getElementsByName("quan" + k);
+            if (input[0].value == 0) {
+                emptyCount++;
+            }
+        }
+
+        if (emptyCount == menuItems.length) {
+            validInput = false;
+            errorMsg += "Please order at least one item\n";
+        }
+
+        if (document.getElementsByName("p_or_d")[0].checked) {
+            delivery = false;
+        }
+        else if (document.getElementsByName("p_or_d")[1].checked) {
+            delivery = true;
+        }
+
+        console.log(delivery);
+        var streetProvided;
+        var cityProvided;
+
+        if (document.getElementsByName("street")[0] == "") {
+            streetProvided = false;
+        }
+        if (document.getElementsByName("city")[0] == "") {
+            cityProvided = false;
+        }
+
+        if (delivery && (!cityProvided) && (!streetProvided)) {
+            validInput = false;
+            errorMsg+= "Please enter a full delivery address\n";
+        }
+
+        return validInput;
+    }//end valInput
+
+    function validate() {
+        console.log("submitted");
+        isValid = true;
+        errorMsg = "";
+
+        d = new Date();
+        if (delivery == true) {
+            d = new Date(d.getTime() + 45*60000);
+        }
+        else {
+            d = new Date(d.getTime() + 15*60000);
+        }
+
+        isValid = valName();
+        isValid = valPhone();
+        isValid = valInput();
+
+
+        if (isValid) {
+            alert("Thank you for your order! Details to come.");
+            var newWindow = window.open();
+            newWindow.document.write("Order details: ");
+            newWindow.document.write("</br></br>");
+            for (h = 0; h < menuItems.length; h++) {
+                newWindow.document.write(menuItems[h].name + ": ");
+                var quan = document.getElementsByName("quan" + h);
+                newWindow.document.write(quan[0].value);
+                newWindow.document.write("</br>");
+            }
+            newWindow.document.write("</br>");
+            newWindow.document.write("Subtotal: " + subtotal.toFixed(2));
+            newWindow.document.write("</br>");
+            newWindow.document.write("Tax: " + tax.toFixed(2));
+            newWindow.document.write("</br>");
+            newWindow.document.write("Total: " + total.toFixed(2));
+            newWindow.document.write("</br>");
+
+            if (delivery == true) {
+                newWindow.document.write("Delivery Time: " + d);
+            }
+            else {
+                newWindow.document.write("Pickup Time: " + d);
+            }
+
+            return true;
+        }//end validation actions
+        else {
+            alert(errorMsg);
+            return false;
+        }//end error actions
+
+        return isValid;
+    }//end validate
+
+    window.onload = function() {
+        makeSelectUpdate();
+
+        var subBtn = document.querySelector('input[type=button]');
+        subBtn.addEventListener("click", validate);
+
+        document.getElementsByName("city")[0].style.visibility = "hidden";
+        document.getElementsByName("street")[0].style.visibility = "hidden";
+
+        document.getElementsByName("p_or_d")[0].addEventListener("click", function() {document.getElementsByName("city")[0].style.visibility = "hidden";
+        document.getElementsByName("street")[0].style.visibility = "hidden";});
+        document.getElementsByName("p_or_d")[1].addEventListener("click", function() {document.getElementsByName("city")[0].style.visibility = "visible";
+        document.getElementsByName("street")[0].style.visibility = "visible";});
+
+
+    }//end window on load
+  </script>
+<!-- -----------I ADDED------------- -->
+</body>
+</html>
