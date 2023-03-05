@@ -74,7 +74,7 @@
     "song13" : {
         "artists" : ["John Mayer"],
         "title" : "You're Gonna Live Forever in Me",
-        "genres" : ["Soft Rock"],
+        "genres" : ["Rock"],
         "realease" : 2017
     },
     "song14" : {
@@ -86,7 +86,7 @@
     "song15" : {
         "artists" : ["SZA"],
         "title" : "Good Days",
-        "genres" : ["R&B", "Soul", "Alternative R&B"],
+        "genres" : ["R&B", "Soul", "Alternative"],
         "realease" : 2020
     }
 }
