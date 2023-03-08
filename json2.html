@@ -23,6 +23,7 @@
         </style>
     </head>
     <body>
+        <div id = "raw"></div>
         <table id = "myTable">
             <tr class = 'categories'>
                 <th>Artist(s)</th>
@@ -67,6 +68,14 @@
         </table>
 
         <script>
+            $.get("https://gracestapkowski.github.io/cs20-gs/songs.json", function( data )
+                {
+                str = JSON.stringify(data);
+                raw = document.getElementById("raw");
+                raw.innerHTML = str;
+            }
+            );  //end get
+
             $.getJSON("https://gracestapkowski.github.io/cs20-gs/songs.json",
             function(data) {
                 var array = [];
