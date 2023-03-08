@@ -19,11 +19,17 @@
             th, tr, td {
                 height : 30px; 
             }
+            h3 {
+                font-family:Verdana, Geneva, Tahoma, sans-serif;
+            }
 
         </style>
     </head>
     <body>
+        <h3>Raw Data: </h3>
         <div id = "raw"></div>
+
+        <h3>User-friendly display: </h3>
         <table id = "myTable">
             <tr class = 'categories'>
                 <th>Artist(s)</th>
@@ -36,6 +42,7 @@
             </tbody>
         </table>
 
+        <h3>Filtered User-Friendly Display: </h3>
         <pre id="json"></pre>
         <form>
             <label for="genres">Select Genre</label>
