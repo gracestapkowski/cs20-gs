@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <title>json2</title>
+        <style>
+            table, th, tr, td, tbody {
+                border: 1px solid;
+                border-collapse: collapse;
+            }
+            th {
+                background-color: rgb(249, 196, 223);
+            }
+        </style>
+    </head>
+    <body>
+        <table id = "myTable">
+            <tr class = 'categories'>
+                <th>Artist(s)</th>
+                <th>Title</th>
+                <th>Genre(s)</th>
+                <th>Release</th>
+            </tr>
+            <tbody id = 'mytable'>
+
+            </tbody>
+        </table>
+
+        <pre id="json"></pre>
+        <form>
+            <label for="genres">Select Genre</label>
+            <select id="genres">
+                <option value="Pop">Pop</option>
+                <option value="Folk">Folk</option>
+                <option value="Rock">Rock</option>
+                <option value="R&B">R&B</option>
+                <option value="Alternative">Alternative</option>
+                <option value="Indie">Indie</option>
+                <option value="Soul">Soul</option>
+                <option value="Dance/Electronic">Dance/Electronic</option>
+                <option value="Hip-Hop">Hip-Hop</option>
+                <option value="Rap">Rap</option>
+            </select>
+            <input type="button" value="Filter">
+        </form>
+
+        <div>
+            <strong>Filtered Table: </strong>
+        </div>
+
+        <table id = "filteredTable">
+            <tr class = 'categories'>
+                <th>Artist(s)</th>
+                <th>Title</th>
+                <th>Genre(s)</th>
+                <th>Release</th>
+            </tr>
+            <tbody id = 'filteredTable'>
+
+            </tbody>
+        </table>
+
+        <script>
+            $.getJSON("https://gracestapkowski.github.io/cs20-gs/songs.json",
+            function(data) {
+                var array = [];
+                for (var key in data) {
+                    if (data.hasOwnProperty(key)) {
+                        var item = data[key];
+                        array.push({
+                            artists: item.artists,
+                            title: item.title,
+                            genres: item.genres,
+                            release: item.release
+                        });            
+                    }
+                }//end for
+                buildTable(data);
+                var subBtn = document.querySelector('input[type=button]');
+                subBtn.addEventListener("click", () => { filter(data) });
+            });  //end get
+
+            function filter(data) {
+                var filteredTable = document.getElementById('filteredTable');
+                genre = document.getElementById("genres").value;
+                const songsFound = [];
+
+                for (var a = 0; a < data.length; a++) {
+                    for (var b = 0; b < data[a].genres.length; b++) {
+                        if (data[a].genres[b] == genre) {
+                            songsFound.push(a);
+                            b = data[a].genres.length;
+                        }//end if
+                    }//end for
+                }//end for
+
+                for (var c = 0; c < songsFound.length; c++) {
+                    var filRow = '<tr> <td>';
+                    for (var d = 0; d < data[songsFound[c]].artists.length; d++) {
+                        filRow += data[songsFound[c]].artists[d] + " ";
+                    }//end for
+                    filRow += '</td><td>' + data[songsFound[c]].title + '</td> <td>';
+                    for (var e = 0; e < data[songsFound[c]].genres.length; e++) {
+                        filRow += data[songsFound[c]].genres[e] + " ";
+                    }//end for
+                    filRow += '</td> <td>' + data[songsFound[c]].release + '</td> </tr>';
+                    filteredTable.innerHTML += filRow;
+                }//end for
+            }//end filter
+
+            function buildTable(data) {
+                var table = document.getElementById('myTable');
+
+                for (var i = 0; i < data.length; i++) {
+                    var row = '<tr> <td>';
+                    for (var j = 0; j < data[i].artists.length; j++) {
+                        row += data[i].artists[j] + " ";
+                    }//end for
+                    row += '</td><td>' + data[i].title + '</td> <td>';
+                    for (var h = 0; h < data[i].genres.length; h++) {
+                        row += data[i].genres[h] + " ";
+                    }//end for
+                    row += '</td> <td>' + data[i].release + '</td> </tr>';
+                    table.innerHTML += row;
+                }//end for
+            }//end buildTable
+        </script>
+    </body>
+</html>
