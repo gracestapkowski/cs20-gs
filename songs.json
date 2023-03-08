@@ -3,90 +3,90 @@
         "artists" : ["LAUNDRY DAY"],
         "title" : "Jane",
         "genres" : ["Pop"],
-        "realease" : "2018"
+        "release" : "2018"
     },
     {
         "artists" : ["Selena Gomez"],
         "title" : "Middle of Nowhere",
         "genres" : ["Pop"],
-        "realease" : "2011"
+        "release" : "2011"
     },
     {
         "artists" : ["Mac Miller", "Bilal"],
         "title" : "Congratulations (feat. Bilal)",
         "genres" : ["Hip-Hop", "Rap"],
-        "realease" : "2016"
+        "release" : "2016"
     },
     {
         "artists" : ["Elton John"],
         "title" : "Tiny Dancer",
         "genres" : ["Pop", "Rock", "Folk"],
-        "realease" : "1971"
+        "release" : "1971"
     },
     {
         "artists" : ["Phoebe Bridgers"],
         "title" : "Graceland Too",
         "genres" : ["Alternative", "Indie"],
-        "realease" : "2020"
+        "release" : "2020"
     },
     {
         "artists" : ["Harry Styles"],
         "title" : "Cherry",
         "genres" : ["Pop"],
-        "realease" : "2019"
+        "release" : "2019"
     },
     {
         "artists" : ["Grateful Dead"],
         "title" : "Scarlet Begonias",
         "genres" : ["Rock", "Folk"],
-        "realease" : "1974"
+        "release" : "1974"
     },
     {
         "artists" : ["Taylor Swift"],
         "title" : "Getaway Car",
         "genres" : ["Pop"],
-        "realease" : "2018"
+        "release" : "2018"
     },
     {
         "artists" : ["Beyonce"],
         "title" : "Irreplaceable",
         "genres" : ["Pop", "Soul"],
-        "realease" : "2006"
+        "release" : "2006"
     },
     {
         "artists" : ["Megan Thee Stallion"],
         "title" : "Sugar Baby",
         "genres" : ["Hip-Hop", "Rap"],
-        "realease" : "2020"
+        "release" : "2020"
     },
     {
         "artists" : ["Jack Johnson"],
         "title" : "Upside Down",
         "genres" : ["R&B", "Soul"],
-        "realease" : "2006"
+        "release" : "2006"
     },
     {
         "artists" : ["The Beatles"],
         "title" : "Blackbird",
         "genres" : ["Indie", "Alternative", "Folk", "Pop"],
-        "realease" : "1968"
+        "release" : "1968"
     },
     {
         "artists" : ["John Mayer"],
         "title" : "You're Gonna Live Forever in Me",
         "genres" : ["Rock"],
-        "realease" : "2017"
+        "release" : "2017"
     },
     {
         "artists" : ["Rihanna"],
         "title" : "Umbrella",
         "genres" : ["Dance/Electronic", "R&B", "Pop", "Soul"],
-        "realease" : "2007"
+        "release" : "2007"
     },
     {
         "artists" : ["SZA"],
         "title" : "Good Days",
         "genres" : ["R&B", "Soul", "Alternative"],
-        "realease" : "2020"
+        "release" : "2020"
     }
 ]
