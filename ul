@@ -1,0 +1,14 @@
+<ul class="navbar">
+        <img src="https://gracestapkowski.github.io/cs20-gs/tbg1.png" class="logo">
+        <li class="items"><a href="#"> Home </a></li>
+        <li class="items"><a href="#"> Activities/Attractions </a></li>
+        <li class="items"><a href="#"> Dining </a> </li>
+        <li class="items"><a href="#"> Transportation </a></li>
+        <li class="items"><a href="#"> Upcoming Events </a> </li>
+        <li class="items"><a href="#"> About Us </a></li>
+        <li class="items"><a href="#"> Contact </a> </li>
+      </ul>
+    <br><br><br><br><br><br><br>
+    <div class = "container">
+        <h1>ACTIVITIES/ATTRACTIONS</h1>
+    </div>
