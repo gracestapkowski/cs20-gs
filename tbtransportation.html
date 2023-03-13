@@ -4,6 +4,8 @@
     <title>Transportation in Boston</title>
     <link rel="stylesheet" type="text/css" href="https://gracestapkowski.github.io/cs20-gs/thinkboston.css">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_09kLljfOIQ4ULmnW_P4gaprLUjoIz94"></script>
+    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
+        crossorigin="anonymous"></script>
     <style>
         /* Style the headings */
 /* body {
@@ -171,7 +173,10 @@ label[for="line-filter"] {
       </ul>
       <br><br><br><br><br><br><br>
     <div class = 'container'>
-        <h1>TRANSPORTATION</h1>
+        <h1 class="heading">TRANSPORTATION</h1>
+        <script>
+            $(".heading").hide().fadeIn(1800);
+        </script>
     <h2>Subway (the "T")</h2>
     <div class="subway-lines">
         <div class="red-line">Red Line</div>
