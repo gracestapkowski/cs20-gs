@@ -2,6 +2,7 @@
     .event {
       flex-direction: column;
     }
+}
 
 .navbar .logo a:hover {
     color: white;
