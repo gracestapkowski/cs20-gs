@@ -1,10 +1,14 @@
-.logo {
+.navbar .logo a:hover {
+    color: white;
+    background-color: rgba(255, 255, 255, 0);
+  }
+.navbar .logo {
     width: 200px;
     height: 200px;
     margin-right: auto;
-    margin-top: -40px; 
+    margin-top: -30px; 
     border-radius: 50%;
-  }
+}
         
 /* Set up the background image for the banner */
 .banner {
@@ -17,7 +21,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 0 !important;
 }
   
 /* Style the heading inside the banner */
@@ -116,4 +119,28 @@ body {
     background-attachment: fixed;
     background-position: center;
     background-size: 100%;
+}
+.footer{
+    display: block;
+    background-color: rgba(255, 255, 255, 0.873);
+    margin-left: 15%;
+    margin-right: 15%;
+    color: rgb(5, 48, 85);
+    width: 60%;
+    height: 40%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    font-size: 100%;
+    opacity: 90%;
+    text-align: center;
+}
+
+.footer a {
+    color: rgb(5, 48, 85);
+}
+.footer_left{
+    margin-top: 0%;
+    margin-bottom: 0%;
 }
