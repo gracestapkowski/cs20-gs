@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link type = "text/css" rel="stylesheet" href="https://gracestapkowski.github.io/cs20-gs/thinkboston.css">
+        <title>Contact</title>
+        <style>
+            h2{
+                font-size: 20px; 
+                font-family: fantasy;
+                text-align: center;
+            }
+
+            .container .inquiry{
+                font-family: cursive;
+                font-size: 2em;
+            }
+
+
+            .contact_form{
+                background-color: rgb(5, 48, 85);
+                margin-top: 0%;
+                align-self: center;
+                margin-left: 5%;
+                margin-right: 5%;
+                padding-left: 5%;
+                padding-right: 5%;
+                opacity: 85%;
+                color: aliceblue;
+                margin-bottom: 10%;
+                width: 80%;
+                height: 80%;
+                padding-bottom: 10%;
+            }
+
+            .form_box{
+                width: 45%;
+                height: 2em;
+                align-self: center;
+                padding-left: 2%;
+                padding-right: 2%;
+                font-size: 15px;
+            }
+
+            .footer_left{
+                margin-top: 0%;
+                margin-bottom: 0%;
+            }
+            
+
+            .form_info{
+                font-family: Georgia, 'Times New Roman', Times, serif;
+                color: rgb(25, 100, 25);
+            }
+
+            .Add{
+                width: 32%;
+                height: 2em;
+                padding-left: 2%;
+                padding-right: 2%;
+                font-size: 15px;
+            }
+
+            .country{
+                width: 25%;
+                font-size: 15px;
+            }
+
+            .message{
+                width: 100%;
+                padding-left: 2%;
+                font-size: 15px;
+            }
+
+            .button{
+                align-items: center;
+            }
+
+            .footer{
+                display: block;
+                background-color: rgba(255, 255, 255, 0.873);
+                margin-left: 15%;
+                margin-right: 15%;
+                color: rgb(5, 48, 85);
+                width: 60%;
+                height: 40%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+                padding-left: 5%;
+                padding-right: 5%;
+                font-size: 100%;
+                opacity: 90%;
+                text-align: center;
+            }
+
+            .footer a {
+                color: rgb(5, 48, 85);
+            }
+
+           .container .button {
+            background-color: rgb(25, 100, 25);
+            border: none;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            margin: 4px 2px;
+            cursor: pointer;
+            justify-content: center;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <ul class="navbar">
+            <img src="https://gracestapkowski.github.io/cs20-gs/tbg1.png" class="logo">
+            <li class="items"><a href="#"> Home </a></li>
+            <li class="items"><a href="#"> Activities/Attractions </a></li>
+            <li class="items"><a href="#"> Dining </a> </li>
+            <li class="items"><a href="#"> Transportation </a></li>
+            <li class="items"><a href="#"> Upcoming Events </a> </li>
+            <li class="items"><a href="#"> About </a></li>
+            <li class="items"><a href="#"> Contact </a> </li>
+          </ul>
+        <br><br><br><br><br><br><br>
+        <div class = "container">
+            <h1>CONTACT US</h1>
+        </div>
+        <br />
+        <div class="container"> 
+            <p class="inquiry">General Inquiry</p> 
+            <br />
+            <p class="form_info">
+                Questions about what we do or where we can take you? Or perhaps you'd 
+                like to submit a story idea or suggest a property. 
+                <br />
+                Please leave your queries and comments below and we'll respond promptly.
+                <br /> <br />
+            </p>
+            <form method="post" name="form1" id="form1"> 
+                <input type = 'text' name = "fname" class="form_box" placeholder = "First Name" >
+                <input type = 'text'  name = "lname" class="form_box" placeholder = "Last Name" >
+                <br />
+                <br />
+                <input type = 'text'  name = "email" class="form_box" placeholder = "Email Address" >
+                <input type = 'text'  name = "phone" class="form_box" placeholder = "Phone Number" >
+                <br />
+                <br />
+                <input type = 'text'  name = "address" class="Add" placeholder = "Address" >
+                <input type = 'text'  name = "state" class="Add" placeholder = "State" >
+
+                <select class="country">
+                    <option value="United States">United States</option>
+                </select>
+                <br />
+                <br />
+                <p class="form_info">Have you worked with us before? </p>
+                <input type = "radio" name='choice' value ='yes' checked = '1'> yes  
+                <input type = "radio" name='choice' value = 'no'> no
+                <br />
+                <textarea class="message"rows = '5' placeholder = "Write your message here"></textarea>
+                <br />
+                <br />
+                <input type = 'reset' class ="button">
+                <input type = 'button' class = "button" value='send inquiry' name ="submit">
+                <br />
+        </div>
+
+        <script>
+            function validate() 
+            {
+
+                // Getting all form elements in order to be able to validate
+
+                var fname = document.getElementsByName("fname")[0].value;
+                var lname = document.getElementsByName("lname")[0].value;
+                var phone = document.getElementsByName("phone")[0].value;
+                var email = document.getElementsByName("email")[0].value;
+                var address = document.getElementsByName("address")[0].value;
+                var state = document.getElementsByName("state")[0].value;
+
+
+                if (!fname) {
+                    alert("Please enter your first name.");
+                    return false;
+                }
+
+                if (!lname) {
+                    alert("Please enter your last name.");
+                    return false;
+                }
+
+                if (!phone.match(/^\d{7}|\d{10}$/)) {
+                    alert("Please enter a valid phone number with 7 or 10 digits.");
+                    return false;
+                }
+
+                if (! address) {
+                    alert("Please enter your address.");
+                    return false;
+                }
+
+                if(state.length != 2) {
+                    alert("Please enter a valid state (eg. MA).");
+                    return false;
+                }
+
+
+                
+
+                return true;
+                alert("reached return true");
+            
+            }
+
+            var submitButton = document.querySelector('input[name="submit"]');
+            submitButton.addEventListener('click', () => {
+                if (validate()) {
+                    var fname = document.getElementsByName("fname")[0].value;
+                    var message = "Thank you for connecting with us, " + fname + " !";
+                    alert(message);
+                    document.getElementById("form1").reset();
+                }
+            });
+
+        </script>
+
+        <div class="footer">
+                    
+            <p class= "footer_left"; >Email : 
+                <a href="mailto:info@thinkboston.com">info@thinkboston.com</a></p>
+
+            <br />
+            <p class= "footer_left"; >Phone: +1 999 999 9999</p>
+            <br />
+            <p class= "footer_left"; >Address: 
+                THINK BOSTON, 14 Summer St, Somerville, MA 02144</p>
+
+        </div>
+
+    </body>
+</html>
