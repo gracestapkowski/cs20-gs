@@ -1,0 +1,39 @@
+{
+    "events": [
+        {
+            "title": "Emotional Oranges",
+            "date": "2023-03-12T00:00:00.000Z",
+            "location": "Royale Boston, Boston, MA",
+            "description": "Catch Emotional Oranges at their Pulp Fiction Tour at the Royale Boston",
+            "url": "https://www.ticketmaster.com/emotional-oranges-tickets/artist/2631204"
+        },
+        {
+            "title": "Tufts Senior Bar Night",
+            "date": "2023-03-12T03:00:00.000Z",
+            "location": "Red Lantern Boston, Boston, MA",
+            "description": "Join Tufts Seniors at the Red Lantern Boston to reminisce",
+            "url": "https://www.ticketmaster.com/tufts-senior-bar-night-21-boston-massachusetts-03-10-2023/event/01005E5CBFD63436"
+        },
+        {
+            "title": "John Mayer - Solo",
+            "date": "2023-03-13T23:30:00.000Z",
+            "location": "TD Garden, Boston, MA",
+            "description": "Catch John Mayer at his first ever Solo Tour at the iconic TD Garden",
+            "url": "https://www.ticketmaster.com/john-mayer-solo-boston-massachusetts-03-13-2023/event/01005E39F1CD82A4"
+        },
+        {
+            "title": "Shamrock Showdown Bar Crawl w/ Bryce Hall",
+            "date": "2023-03-18T15:30:00.000Z",
+            "location": "West End Johnnie's, Boston, MA",
+            "description": "Join Bryce Hall for a pub crawl through Boston's most famous bars this St. Patrick's Day",
+            "url": "https://www.eventbrite.com/e/the-shamrock-showdown-bostons-ultimate-st-patricks-day-bar-crawl-tickets-514356603447"
+        },
+        {
+            "title": "South Asian Regional Committee Symposium",
+            "date": "2023-03-30T14:00:00.000Z",
+            "location": "Undecided",
+            "description": "Discuss South Asian Politics with presidents Gowri Kashyap and Arjun Bagur",
+            "url": "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+        }
+    ]
+}
