@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+	<title>Dog Photo API</title>
+	<meta charset="utf-8"/>
+    <!-- AJAX Data Pattern -->
+	<script>
+		function getDogPhoto() {
+			request = new XMLHttpRequest();
+			console.log("1 - request object created");
+  
+		request.open("GET", "https://dog.ceo/api/breeds/image/random", true)
+
+			console.log("2 - opened request file");
+
+			request.onreadystatechange = function() {
+				console.log("3 - readystatechange event fired.");
+ 
+				if (request.readyState == 4 && request.status == 200) {
+
+                    console.log("5 - response received");
+					result = request.responseText;
+					alert(result);
+					dog = JSON.parse(result);
+					
+					document.getElementById("data1").innerHTML ="<img src = " + dog["message"] + " >"; 
+					
+				}
+				else if (request.readyState == 4 && request.status != 200) {
+
+					document.getElementById("data1").innerHTML = "Something is wrong!  Check the logs to see where this went off the rails";
+
+				}
+
+				else if (request.readyState == 3) {
+
+					document.getElementById("data1").innerHTML = "Too soon!  Try again";
+
+				}
+
+			}
+		// Step 4: fire off the HTTP request
+			request.send();
+			console.log("4 - Request sent");
+		}
+	</script>
+    <!-- FETCH -->
+    <script>
+        res =
+        fetch("https://dog.ceo/api/breeds/image/random")
+        .then (res => res.text())
+        .then (data =>
+        {
+        data = JSON.parse(data)
+        data = data.message;
+
+        document.getElementById("data2").innerHTML = "<img src = " + data + " >"; 
+
+        console.log("Fetch dog image" + data)
+        })
+    .catch (error => console.log(error))
+    </script>
+</head>
+
+
+<body onload="getDogPhoto()">
+
+	<h1>Dog Photo: AJAX Data Pattern</h1>
+	<div id="data1">Loading...</div>
+    <h1>Dog Photo: Fetch</h1>
+    <div id="data2">Loading...</div>
+    <div id = "questions">
+        <p>The API I selected is called the Dog API and it returns a random link to a dog image every time it is run.</p>
+        <br>
+        <p>I found this API on <a href = "https://github.com/public-apis/public-apis">this github page</a>.</p>
+        <br>
+        <p>I decided to ask for a image of a random dog regardless of breed, but this API can also return images of dogs based on a selected breed, like this: https://dog.ceo/api/breed/{yourbreed}/images.</p>
+        <br>
+        <p>One application where this API would be helpful would be on a website all about dogs with separate pages for each breed. You could display a random image of each breed to give a visual.</p>
+        <p>Another application would be on a "useless" webisite that people use for fun/comedic relief. There is a whole database of them <a href = "https://theuselessweb.com/">here</a>! Sometimes it can be fun to go through these websites and have a laugh, and some of the dog pictures that come up from this API are quite funny.</p>
+    </div>
+</body>
+</html>
