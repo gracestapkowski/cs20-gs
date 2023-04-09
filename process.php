@@ -16,6 +16,7 @@
 	$str .= "Special Instructions: $instructions <br>";
 	
 	echo $str;
+	echo "<script> console.log('php ran') </script>";
 	?>
 </body>
 </html>
